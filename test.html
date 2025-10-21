@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8">  <title>Visitor Counter (Backend-less)</title>  <style>    body {      font-family: Arial, sans-serif;      background-color: #1c1b29;      color: #f0f0f0;      display: flex;      flex-direction: column;      justify-content: center;      align-items: center;      height: 100vh;      margin: 0;    }    h1 {      color: #9b6cf3;      margin-bottom: 20px;    }    p {      font-size: 18px;      margin: 5px 0;    }    span {      color: #9b6cf3;      font-weight: bold;    }  </style></head><body>  <h1>Visitor Counter (Backend-less)</h1>
   <p>Total visitors — <span id="visitors">Loading...</span></p>  <p>Total hits — <span id="hits">Loading...</span></p>  <p>Desktop — <span id="desktop">Loading...</span></p>  <p>Mobile — <span id="mobile">Loading...</span></p>  <p>Tablet — <span id="tablet">Loading...</span></p>
   <script>    // Identify device type    function getDeviceType() {      const ua = navigator.userAgent;      if (/Tablet|iPad/i.test(ua)) return "tablet";      if (/Mobi|Android/i.test(ua)) return "mobile";      return "desktop";    }
-    // Base API key (you can change this to your own name)    const base = "https://api.countapi.xyz";    const namespace = "nouf-demo-counter"; // unique name to avoid conflicts
+    // Base API key (you can change this to your own name)    const base = "https://api.countapi.xyz";    const namespace = "salmannouf57-counter"; // unique name to avoid conflicts
     async function updateCounts() {      const device = getDeviceType();
       // Increment global hit counter      await fetch(`${base}/hit/${namespace}/hits`);
       // Increment device counter      await fetch(`${base}/hit/${namespace}/${device}`);
